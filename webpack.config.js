@@ -1,10 +1,12 @@
 module.exports = {
   entry: {
-    lib: './src/lib/index.ts',
+    index: './src/lib/TokenCache.ts'
   },
   output: {
     filename: '[name].js',
-    path: __dirname + '/dist',
+    path: __dirname,
+    library: 'wpo365-fxlib',
+    libraryTarget: 'umd'
   },
 
   // Enable sourcemaps for debugging webpack's output.
@@ -12,7 +14,7 @@ module.exports = {
 
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
-    extensions: ['.ts', '.tsx', '.js', '.json'],
+    extensions: ['.ts', '.tsx', '.js', '.json']
   },
 
   module: {
@@ -25,9 +27,9 @@ module.exports = {
       { test: /\.css$/, use: ['style-loader', 'css-loader'] },
       {
         test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-        loader: 'url-loader?limit=100000',
-      },
-    ],
+        loader: 'url-loader?limit=100000'
+      }
+    ]
   },
-  mode: 'production',
-}
+  mode: 'production'
+};
