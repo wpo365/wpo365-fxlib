@@ -1,0 +1,24 @@
+{
+  "name": "wpo365-fxlib",
+  "sideEffects": false,
+  "version": "0.1.0",
+  "description": "wpo365-fxlib is a tiny helper library intended to offer developers that want to build custom integrations for WordPress and Microsoft Office 365. It expects WordPress Single Sign-on plugin wpo365-login(-premium) to be installed, activated and configured. For documentation please visit https://www.wpo365.com/",
+  "main": "dist/bundle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "marco@wpo365.com",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "es6-promise": "^4.2.4"
+  },
+  "devDependencies": {
+    "@types/es6-promise": "^3.3.0",
+    "awesome-typescript-loader": "^5.2.0",
+    "source-map-loader": "^0.2.3",
+    "typescript": "^2.9.2",
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.1.2"
+  }
+}
