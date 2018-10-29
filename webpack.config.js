@@ -1,9 +1,7 @@
 module.exports = {
-  entry: {
-    index: './src/lib/TokenCache.ts'
-  },
+  entry: ['./src/lib/index.ts'],
   output: {
-    filename: '[name].js',
+    filename: 'index.js',
     path: __dirname,
     library: 'wpo365-fxlib',
     libraryTarget: 'umd'
