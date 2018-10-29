@@ -20,9 +20,14 @@ export class TokenCache {
     }
   }
 
+  /**
+   *
+   * @param request TokenRequest          The TokenRequest object
+   * @param options ITokenRequestOptions  Optional ITokenRequestOptions
+   */
   public static getToken(
     request: TokenRequest,
-    options: ITokenRequestOptions
+    options?: ITokenRequestOptions
   ): Promise<IToken | TokenRequestError> {
     return new Promise<IToken | TokenRequestError>(
       (
@@ -45,7 +50,7 @@ export class TokenCache {
         const data = new FormData();
         data.append('action', 'get_tokencache');
         data.append('resource', request.toString());
-        data.append('nonce', (window as any)['wpo365FxNonce']);
+        data.append('nonce', options.nonce);
         Axios.post(options.wpAjaxAdminUrl, data)
           .then(function(response: any) {
             console.log(response);
@@ -70,7 +75,8 @@ export class TokenCache {
                 resolve(token);
               } else {
                 const responseError = new TokenRequestError();
-                responseError.data = response.data;
+                if (response && response.data)
+                  responseError.data = response.data;
                 throw responseError;
               }
             } else {
@@ -93,6 +99,7 @@ export class TokenCache {
 }
 
 export interface ITokenRequestOptions {
+  nonce: string;
   wpAjaxAdminUrl: string;
 }
 
